@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="es">
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Abriendo en Notion</title>
+<body style="margin:0;height:100vh;display:grid;place-items:center;background:#191919;color:#cfcfcf;font:15px system-ui,sans-serif">
+<p id="t">Abriendo en la app de Notion…</p>
+<script>
+  // Pasa al puente del PC (abrir_notion.py), que abre la página en la app de escritorio de Notion.
+  // El id va detrás de # para que no llegue a ningún servidor.
+  var id = (location.hash || "").slice(1).toLowerCase();
+  if (/^[0-9a-f]{32}$/.test(id)) {
+    location.replace("http://127.0.0.1:15195/n/" + id);
+  } else {
+    document.getElementById("t").textContent = "Este enlace no es válido.";
+  }
+</script>
+</body>
+</html>
